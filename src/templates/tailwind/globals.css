@@ -1,0 +1,175 @@
+
+@import 'tailwindcss';
+/* Uncomment the appropriate line when theme switcher is implemented */
+/* @custom-variant dark (&:where(.dark, .dark *)); */
+/* @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *)); */
+
+@source inline("{,sm:,md:,lg:,xl:,2xl:}basis-{0,full,auto,1/12,1/6,1/4,1/3,5/12,1/2,7/12,2/3,3/4,5/6,11/12}");
+@source inline("{,sm:,md:,lg:,xl:,2xl:}self-{start,end,center}");
+@source inline("{,sm:,md:,lg:,xl:,2xl:}order-{0,1,2,3,4,5,6,7,8,9,10,11,12,first,last,none}");
+@source inline("{,sm:,md:,lg:,xl:,2xl:}offset-{1,2,3,4,5,6,7,8,9,10,11}");
+@source inline("{,sm:,md:,lg:,xl:,2xl:}grow{,-0}");
+@source inline("{,sm:,md:,lg:,xl:,2xl:}{m,p}{t,b,l,r,x,y}-{0,auto}");
+@source inline("{,sm:,md:,lg:,xl:,2xl:}{block,inline-block,inline,flex,inline-flex,grid,inline-grid,contents,table,table-row,table-cell,table-caption,table-column,table-column-group,table-footer-group,table-header-group,table-row-group,flow-root,hidden}");
+@source inline("bg-{cover,fixed,scroll}");
+
+@theme {
+  --color-background: #ffffff;
+  --color-background-secondary: #f4fdfd;
+  --color-background-tertiary: #b8eff2;
+  --color-foreground: #023859;
+
+  --color-background-dark: #011119;
+  --color-background-secondary-dark: #047294;
+  --color-background-tertiary-dark: #023859;
+  --color-foreground-dark: #ffffff;
+  --color-foreground-secondary-dark: #b8eff2;
+
+  --color-accent: #6cd8c9;
+  --color-accent-muted: #a3ddcf;
+
+  --color-background-input: #e7f7f4;
+  --color-disabled: #dcdcdc;
+  --color-disabled-dark: #70a7b8;
+
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@utility offset-* {
+  margin-inline-start: calc(--value(integer) / 12 * 100%);
+}
+
+@layer utilities {
+  .indent-top {
+    @apply pt-8;
+  }
+
+  .indent-bottom {
+    @apply pb-8;
+  }
+
+  .indent {
+    @apply px-8;
+  }
+
+  .position-left,
+  .position-left * {
+    @apply text-left;
+  }
+
+  .position-right,
+  .position-right * {
+    @apply text-right;
+  }
+
+  .position-center,
+  .position-center * {
+    @apply text-center;
+  }
+
+  .container-wrapper {
+    @apply basis-full;
+  }
+
+  .row {
+    @apply flex flex-wrap items-start h-full;
+  }
+
+  .image-default-size {
+    img {
+      @apply max-w-none !w-auto;
+    }
+  }
+
+  .cover-background {
+    > .component-content {
+      @apply bg-cover bg-no-repeat;
+    }
+  }
+
+  .fix-background {
+    > .component-content {
+      @apply bg-cover bg-no-repeat bg-fixed;
+    }
+  }
+
+  .parallax-background {
+    > .component-content {
+      @apply bg-cover bg-no-repeat bg-scroll;
+    }
+  }
+
+  .container-clean-background {
+    > .component-content {
+      @apply bg-background dark:bg-background-dark;
+    }
+  }
+
+  .container-color-background {
+    > .component-content {
+      @apply bg-background-secondary dark:bg-background-secondary-dark;
+    }
+  }
+
+  .container-dark-background {
+    > .component-content {
+      @apply bg-background-tertiary dark:bg-background-tertiary-dark;
+    }
+  }
+
+  .container-gray-background {
+    > .component-content {
+      @apply bg-disabled dark:bg-disabled-dark;
+    }
+  }
+}
+
+@layer base {
+  body {
+    @apply font-body bg-background text-foreground dark:bg-background-dark dark:text-foreground-dark;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading font-bold mb-[0.5em];
+  }
+
+  h1 {
+    @apply text-6xl;
+  }
+
+  h2 {
+    @apply text-5xl;
+  }
+
+  h3 {
+    @apply text-4xl;
+  }
+
+  h4 {
+    @apply text-3xl;
+  }
+
+  h5 {
+    @apply text-2xl;
+  }
+
+  h6 {
+    @apply text-xl;
+  }
+
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
