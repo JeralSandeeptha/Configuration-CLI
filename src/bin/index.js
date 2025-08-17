@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 const { program } = require("commander");
-const addStorybook = require("../commands/add-storybook");
-const addTailwind = require("../commands/configure-tailwind");
+const configureStorybook = require("../commands/configure-storybook");
+const configureTailwind = require("../commands/configure-tailwind");
 
 program
-  .command("add-tailwind")
+  .command("configure-tailwind")
   .description("Configure Tailwindcss to the current project")
-  .action(addTailwind);
+  .action(configureTailwind);
 
   program
-  .command("add-storybook")
+  .command("configure-storybook")
   .description("Configure Storybook in the current project")
-  .action(addStorybook);
+  .action(configureStorybook);
 
 program.parse(process.argv);

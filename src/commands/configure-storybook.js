@@ -2,7 +2,7 @@ const fs = require("fs-extra");
 const path = require("path");
 const { execa } = require("execa");
 
-module.exports = async function addStorybook() {
+module.exports = async function configureStorybook() {
   console.log("🔧 Adding Storybook...");
 
   try {

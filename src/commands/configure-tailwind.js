@@ -2,7 +2,7 @@ const fs = require("fs-extra");
 const path = require("path");
 const { execa } = require("execa");
 
-module.exports = async function addTailwind() {
+module.exports = async function configureTailwind() {
   console.log("🔧 Adding TailwindCSS...");
   try {
     // 1️⃣ Install the dependencies
